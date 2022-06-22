@@ -20,14 +20,14 @@
     </div>
 </template>
 
-<style scoped lang="scss">
-@import 'primeflex/primeflex.scss';
+<style scoped lang="scss"> 
+@use 'primeflex/primeflex';
 
 .main-wrapper {
-    @include styleclass('grid');
+    @include primeflex.styleclass('grid');
 }
 
 .main-container {
-    @include styleclass('col-6 col-offset-3');
+    @include primeflex.styleclass('col-6 col-offset-3');
 }
 </style>  
