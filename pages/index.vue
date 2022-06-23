@@ -3,10 +3,12 @@
 </script>
 
 <template>
-    <h1>Home</h1>
-    <div class="event-list">
+    <div class="event-list mt-4"> 
         <div class="col sm:col-6 md:col-4" v-for="(event, index) in events">
-            <EventCard :title="event.title" :copyright="event.image.copyright"
+            <EventCard 
+                :id="event.id"
+                :title="event.title" 
+                :copyright="event.image.copyright"
                 :start="event.start" 
                 :location="`${event.venue.street}, ${event.venue.city}`"
                 :minPrice="event.minPrice.value" />

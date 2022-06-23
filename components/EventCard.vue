@@ -1,7 +1,7 @@
+import { NuxtModule } from '@nuxt/schema';
 <script setup lang="ts">
-    import Card from 'primevue/card';
-
     const props = defineProps<{
+        id: string,
         copyright: string,
         title: string,
         start: string,
@@ -15,12 +15,20 @@
     const year = dateTime.getFullYear();
     const hours = dateTime.getHours();
     const minutes = ("0" + dateTime.getMinutes()).slice(-2);
+
+    const details = {
+        id: props.id,
+        title: props.title,
+        date: `${date}.${month}.${year}`, 
+        time: `${hours}:${minutes}`,
+        location: props.location,
+        price: `from ${props.minPrice}`
+    };
 </script>
 
 <template>
     <Card>
         <template #header>
-            <img src=""  alt="" loading="lazy" />
             <picture>
                 <source srcset="/images/card-img-250.webp" media="(min-width: 1024px)" type="image/webp" />
                 <img class="event-card__pic" 
@@ -47,13 +55,18 @@
             <div class="event-card__location"><i class="pi pi-map-marker"></i> {{ location }}</div>
         </template>
         <template #footer>
-            <Button icon="pi pi-euro" iconPos="right" :label="`from ${minPrice}`" />
+            <nuxt-link :to="{ name: 'details-detail-id', params: { ...details } }">
+                <Button icon="pi pi-euro" iconPos="right" :label="`from ${minPrice}`" />
+            </nuxt-link>
         </template>
     </Card>
 </template>
 
 <style>
     /* override */
+    a {
+        text-decoration: none;
+    }
     .p-card-body {
         position: relative;
     }
