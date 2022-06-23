@@ -4,7 +4,7 @@
 
 <template>
     <div class="event-list mt-4"> 
-        <div class="col sm:col-6 md:col-4" v-for="(event, index) in events">
+        <div class="col-12 sm:col-6 lg:col-4" v-for="(event, index) in events">
             <EventCard 
                 :id="event.id"
                 :title="event.title" 

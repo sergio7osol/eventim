@@ -17,6 +17,6 @@
 }
 
 .main-container {
-    @include primeflex.styleclass('col-6 col-offset-3');
+    @include primeflex.styleclass('col-12 md:col-10 md:col-offset-1 lg:col-6 lg:col-offset-3');
 }
 </style>  
